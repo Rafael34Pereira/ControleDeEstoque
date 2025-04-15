@@ -1,0 +1,50 @@
+public class Produto {
+    private int id;
+    private String nome;
+    private int quantidade;
+    private double preco;
+
+    public Produto(int id, String nome, int quantidade, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
+    // Getters e setters
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return id + "," + nome + "," + quantidade + "," + preco;
+    }
+
+    public static Produto fromString(String linha) {
+        String[] partes = linha.split(",");
+        return new Produto(
+                Integer.parseInt(partes[0]),
+                partes[1],
+                Integer.parseInt(partes[2]),
+                Double.parseDouble(partes[3])
+        );
+    }
+}
